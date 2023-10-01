@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
-namespace DatGheXemPhim.RapPhimModel
+namespace DatGheXemPhim.Models
 {
-    public partial class contextDB : DbContext
+    public partial class RapPhimModel : DbContext
     {
-        public contextDB()
-            : base("name=contextDB1")
+        public RapPhimModel()
+            : base("name=RapPhimModel")
         {
         }
 
