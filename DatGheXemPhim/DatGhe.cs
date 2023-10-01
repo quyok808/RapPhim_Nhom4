@@ -1,9 +1,11 @@
-﻿using System;
+﻿using DatGheXemPhim.RapPhimModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -80,10 +82,38 @@ namespace DatGheXemPhim
                 btn.BackColor = Color.White;
             }
         }
+<<<<<<< HEAD
 
         private void btnHuyVe_Click(object sender, EventArgs e)
         {
 
+=======
+       
+        private void btnChon_Click(object sender, EventArgs e)
+        {
+            contextDB context = new contextDB();
+            foreach (Button b in groupBox1.Controls)
+            {
+                if (b.BackColor == Color.Blue)
+                    b.BackColor = Color.Gray;
+            }
+            context.SaveChanges();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            contextDB context = new contextDB();
+            foreach (Button btn1 in groupBox1.Controls)
+            {
+                if (btn1.BackColor == Color.Blue)
+                {
+                    btn1.BackColor = Color.White;
+                }
+            }
+            context.SaveChanges();
+>>>>>>> a91a4f5fddf9954be0ac71363ae9ae401eee4360
         }
     }
 }
+    
+
