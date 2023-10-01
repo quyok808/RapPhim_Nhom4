@@ -128,6 +128,7 @@
             this.btnHuyVe.TabIndex = 7;
             this.btnHuyVe.Text = "Huỷ vé";
             this.btnHuyVe.UseVisualStyleBackColor = false;
+            this.btnHuyVe.Click += new System.EventHandler(this.btnHuyVe_Click);
             // 
             // txtInfor_Name
             // 

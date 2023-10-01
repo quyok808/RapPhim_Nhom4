@@ -80,5 +80,10 @@ namespace DatGheXemPhim
                 btn.BackColor = Color.White;
             }
         }
+
+        private void btnHuyVe_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
