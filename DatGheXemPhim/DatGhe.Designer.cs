@@ -51,7 +51,7 @@
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("#9Slide03 AllRoundGothic", 46.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 46.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1056, 89);
@@ -74,13 +74,14 @@
             // 
             this.btnChon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnChon.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnChon.Font = new System.Drawing.Font("#9Slide03 Arima Madurai ExtraBo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChon.Location = new System.Drawing.Point(89, 680);
             this.btnChon.Name = "btnChon";
             this.btnChon.Size = new System.Drawing.Size(218, 49);
             this.btnChon.TabIndex = 2;
             this.btnChon.Text = "Chọn";
             this.btnChon.UseVisualStyleBackColor = false;
+            this.btnChon.Click += new System.EventHandler(this.btnChon_Click);
             // 
             // label2
             // 
@@ -109,19 +110,20 @@
             // 
             this.btnHuy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnHuy.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnHuy.Font = new System.Drawing.Font("#9Slide03 Arima Madurai ExtraBo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuy.Location = new System.Drawing.Point(446, 680);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(218, 49);
             this.btnHuy.TabIndex = 5;
             this.btnHuy.Text = "Huỷ chọn";
             this.btnHuy.UseVisualStyleBackColor = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnHuyVe
             // 
             this.btnHuyVe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btnHuyVe.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnHuyVe.Font = new System.Drawing.Font("#9Slide03 Arima Madurai ExtraBo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuyVe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuyVe.Location = new System.Drawing.Point(803, 680);
             this.btnHuyVe.Name = "btnHuyVe";
             this.btnHuyVe.Size = new System.Drawing.Size(218, 49);
@@ -184,7 +186,7 @@
             // 
             this.btnFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnFind.Font = new System.Drawing.Font("#9Slide03 Arima Madurai ExtraBo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFind.Location = new System.Drawing.Point(1160, 680);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(218, 49);
