@@ -82,7 +82,7 @@ namespace DatGheXemPhim
                 btn.BackColor = Color.White;
             }
         }
-       
+
         private void btnChon_Click(object sender, EventArgs e)
         {
             contextDB context = new contextDB();
