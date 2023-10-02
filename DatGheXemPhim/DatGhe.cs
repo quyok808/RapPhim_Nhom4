@@ -93,19 +93,19 @@ namespace DatGheXemPhim
             }
             context.SaveChanges();
         }
-
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            contextDB context = new contextDB();
             foreach (Button btn1 in groupBox1.Controls)
             {
+
                 if (btn1.BackColor == Color.Blue)
                 {
                     btn1.BackColor = Color.White;
+
                 }
             }
-            context.SaveChanges();
         }
+
     }
 }
     
