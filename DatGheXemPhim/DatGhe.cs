@@ -37,32 +37,6 @@ namespace DatGheXemPhim
                 btn.BackColor = Color.White;
             }
         }
-        
-        private void btnChon_Click(object sender, EventArgs e)
-        {
-            RapPhimModel context = new RapPhimModel();
-            foreach (Button b in groupBox1.Controls)
-            {
-                if (b.BackColor == Color.Blue)
-                {
-                    b.BackColor = Color.Gray;
-                    lbThanhTien.Text = ThanhTien(b).ToString();
-                }
-            }
-            tong = 0;
-            //context.SaveChanges();
-        }
-
-        private void btnHuy_Click(object sender, EventArgs e)
-        {
-            foreach (Button btn1 in groupBox1.Controls)
-            {
-                if (btn1.BackColor == Color.Blue)
-                {
-                    btn1.BackColor = Color.White;
-                }
-            }
-        }
 
         private int ThanhTien(Button btn)
         {
@@ -153,6 +127,38 @@ namespace DatGheXemPhim
                 groupBox1.Controls.Add(btn);
             }
             tong = 0;
+        }
+        
+        private void btnChon_Click(object sender, EventArgs e)
+        {
+            RapPhimModel context = new RapPhimModel();
+            List<GheNgoi> gh = context.GheNgois.ToList();
+            {
+                foreach (Button b in groupBox1.Controls)
+                {
+                    GheNgoi g = context.GheNgois.FirstOrDefault(p => p.MaGhe.Trim() == b.Name.Trim());
+                    if (b.BackColor == Color.Blue)
+                    {
+                        b.BackColor = Color.Gray;
+                        g.TrangThai = 1;
+                    }                   
+                }
+                context.SaveChanges();
+            }           
+            
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {        
+            foreach (Button btn1 in groupBox1.Controls)
+            {
+
+                if (btn1.BackColor == Color.Blue)
+                {
+                    btn1.BackColor = Color.White;
+
+                }
+            }
         }
     }
 }
