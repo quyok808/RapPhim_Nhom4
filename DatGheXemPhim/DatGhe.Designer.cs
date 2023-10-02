@@ -229,6 +229,7 @@
             this.Name = "DatGhe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đặt ghế Xem Phim";
+            this.Load += new System.EventHandler(this.DatGhe_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

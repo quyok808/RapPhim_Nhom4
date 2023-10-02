@@ -18,7 +18,94 @@ namespace DatGheXemPhim
         public DatGhe()
         {
             InitializeComponent();
+        }
+        int tong;
 
+        private void Button_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn.BackColor == Color.White)
+            {
+                btn.BackColor = Color.Blue;
+            }
+            else if (btn.BackColor == Color.Gray)
+            {
+                MessageBox.Show("Ghe nay da co nguoi chon !!!", "Thong bao", MessageBoxButtons.OK);
+            }
+            else
+            {
+                btn.BackColor = Color.White;
+            }
+        }
+        
+        private void btnChon_Click(object sender, EventArgs e)
+        {
+            RapPhimModel context = new RapPhimModel();
+            foreach (Button b in groupBox1.Controls)
+            {
+                if (b.BackColor == Color.Blue)
+                {
+                    b.BackColor = Color.Gray;
+                    lbThanhTien.Text = ThanhTien(b).ToString();
+                }
+            }
+            tong = 0;
+            //context.SaveChanges();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            foreach (Button btn1 in groupBox1.Controls)
+            {
+                if (btn1.BackColor == Color.Blue)
+                {
+                    btn1.BackColor = Color.White;
+                }
+            }
+        }
+
+        private int ThanhTien(Button btn)
+        {
+
+            if (btn.Name.Contains("A") || btn.Name.Contains("B") || btn.Name.Contains("C") || btn.Name.Contains("D"))
+            {
+                tong += 30000;
+            }
+            else if (btn.Name.Contains("E") || btn.Name.Contains("F") || btn.Name.Contains("G") || btn.Name.Contains("H") || btn.Name.Contains("J"))
+            {
+                tong += 50000;
+            }
+            else if (btn.Name.Contains("K"))
+            {
+                tong += 100000;
+            }
+
+            return tong;
+        }
+
+        private void btnHuyVe_Click(object sender, EventArgs e)
+        {
+            RapPhimModel contextDB = new RapPhimModel();
+            List<GheNgoi> g = contextDB.GheNgois.Where(p => p.SDT == txtInfor_SDT.Text).ToList();
+            foreach (Button btn in groupBox1.Controls)
+            {
+                KhachHang kh = contextDB.KhachHangs.FirstOrDefault(p => p.SDT == txtInfor_SDT.Text);
+                for (int i = 0; i < g.Count; i++)
+                {
+                    if (btn.Name.Trim() == g[i].MaGhe.Trim())
+                    {
+                        btn.BackColor = Color.White;
+                        contextDB.KhachHangs.Remove(kh);
+                        g[i].TrangThai = 0;
+                    }
+                }
+            }
+            contextDB.SaveChanges();
+            txtInfor_SDT.Text = null;
+        }
+
+        private void DatGhe_Load(object sender, EventArgs e)
+        {
             string tiento = "ABCDEFGHJK";
             for (int i = 0; i < 13; i++)
             {
@@ -66,90 +153,6 @@ namespace DatGheXemPhim
                 groupBox1.Controls.Add(btn);
             }
             tong = 0;
-        }
-
-        private void Button_Click(object sender, EventArgs e)
-        {
-            Button btn = sender as Button;
-            if (btn.BackColor == Color.White)
-            {
-                btn.BackColor = Color.Blue;
-            }
-            else if (btn.BackColor == Color.Gray)
-            {
-                MessageBox.Show("Ghe nay da co nguoi chon !!!", "Thong bao", MessageBoxButtons.OK);
-            }
-            else
-            {
-                btn.BackColor = Color.White;
-            }
-        }
-        
-        private void btnChon_Click(object sender, EventArgs e)
-        {
-            RapPhimModel context = new RapPhimModel();
-            foreach (Button b in groupBox1.Controls)
-            {
-                if (b.BackColor == Color.Blue)
-                {
-                    b.BackColor = Color.Gray;
-                    lbThanhTien.Text = ThanhTien(b).ToString();
-                }
-            }
-            tong = 0;
-            context.SaveChanges();
-        }
-
-        private void btnHuy_Click(object sender, EventArgs e)
-        {
-            foreach (Button btn1 in groupBox1.Controls)
-            {
-                if (btn1.BackColor == Color.Blue)
-                {
-                    btn1.BackColor = Color.White;
-                }
-            }
-        }
-
-        int tong;
-        private int ThanhTien(Button btn)
-        {
-
-            if (btn.Name.Contains("A") || btn.Name.Contains("B") || btn.Name.Contains("C") || btn.Name.Contains("D"))
-            {
-                tong += 30000;
-            }
-            else if (btn.Name.Contains("E") || btn.Name.Contains("F") || btn.Name.Contains("G") || btn.Name.Contains("H") || btn.Name.Contains("J"))
-            {
-                tong += 50000;
-            }
-            else if (btn.Name.Contains("K"))
-            {
-                tong += 100000;
-            }
-
-            return tong;
-        }
-
-        private void btnHuyVe_Click(object sender, EventArgs e)
-        {
-            RapPhimModel contextDB = new RapPhimModel();
-            List<GheNgoi> g = contextDB.GheNgois.Where(p => p.SDT == txtInfor_SDT.Text).ToList();
-            foreach (Button btn in groupBox1.Controls)
-            {
-                KhachHang kh = contextDB.KhachHangs.FirstOrDefault(p => p.SDT == txtInfor_SDT.Text);
-                for (int i = 0; i < g.Count; i++)
-                {
-                    if (btn.Name.Trim() == g[i].MaGhe.Trim())
-                    {
-                        btn.BackColor = Color.White;
-                        contextDB.KhachHangs.Remove(kh);
-                        g[i].TrangThai = 0;
-                    }
-                }
-            }
-            contextDB.SaveChanges();
-            txtInfor_SDT.Text = null;
         }
     }
 }
