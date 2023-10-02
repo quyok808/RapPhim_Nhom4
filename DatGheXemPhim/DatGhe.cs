@@ -82,29 +82,37 @@ namespace DatGheXemPhim
                 btn.BackColor = Color.White;
             }
         }
-
+        
         private void btnChon_Click(object sender, EventArgs e)
         {
             contextDB context = new contextDB();
-            foreach (Button b in groupBox1.Controls)
+            List<GheNgoi> gh = context.GheNgois.ToList();
             {
-                if (b.BackColor == Color.Blue)
-                    b.BackColor = Color.Gray;
-            }
-            context.SaveChanges();
+                foreach (Button b in groupBox1.Controls)
+                {
+                    GheNgoi g = context.GheNgois.FirstOrDefault(p => p.MaGhe.Trim() == b.Name.Trim());
+                    if (b.BackColor == Color.Blue)
+                    {
+                        b.BackColor = Color.Gray;
+                        g.TrangThai = 1;
+                    }                   
+                }
+                context.SaveChanges();
+            }           
+            
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
-        {
-            contextDB context = new contextDB();
+        {        
             foreach (Button btn1 in groupBox1.Controls)
             {
+
                 if (btn1.BackColor == Color.Blue)
                 {
                     btn1.BackColor = Color.White;
+
                 }
             }
-            context.SaveChanges();
         }
     }
 }
