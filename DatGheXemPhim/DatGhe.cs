@@ -73,8 +73,8 @@ namespace DatGheXemPhim
 
             foreach (Button btn in groupBox1.Controls)
             {
-                GheNgoi g = db.GheNgois.FirstOrDefault(p => p.MaGhe == btn.Name);
-                if (g.TrangThai == 1)
+                GheNgoi g = db.GheNgois.FirstOrDefault(p => p.MaGhe.Trim() == btn.Name.Trim());
+                if (g.TrangThai == 1 && g != null)
                 {
                     btn.BackColor = Color.Gray;
                 }
