@@ -61,11 +61,11 @@
     <Compile Include="DatGhe.Designer.cs">
       <DependentUpon>DatGhe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\GheNgoi.cs" />
+    <Compile Include="Models\KhachHang.cs" />
+    <Compile Include="Models\RapPhimModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RapPhimModel\contextDB.cs" />
-    <Compile Include="RapPhimModel\GheNgoi.cs" />
-    <Compile Include="RapPhimModel\KhachHang.cs" />
     <Compile Include="ThongTinKH.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1,4 +1,4 @@
-namespace DatGheXemPhim.RapPhimModel
+namespace DatGheXemPhim.Models
 {
     using System;
     using System.Collections.Generic;

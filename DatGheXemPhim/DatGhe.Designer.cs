@@ -130,6 +130,7 @@
             this.btnHuyVe.TabIndex = 7;
             this.btnHuyVe.Text = "Huỷ vé";
             this.btnHuyVe.UseVisualStyleBackColor = false;
+            this.btnHuyVe.Click += new System.EventHandler(this.btnHuyVe_Click);
             // 
             // txtInfor_Name
             // 
@@ -228,6 +229,7 @@
             this.Name = "DatGhe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đặt ghế Xem Phim";
+            this.Load += new System.EventHandler(this.DatGhe_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
