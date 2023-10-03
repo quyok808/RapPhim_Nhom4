@@ -117,32 +117,36 @@ namespace DatGheXemPhim
                 }
                 return false;
             }
-            private void btnChon_Click(object sender, EventArgs e)
+        private void BtnChon_Click(object sender, EventArgs e)
+        {
+            if (CheckGhe() == true)
             {
-                if (CheckGhe() == true)
+                RapPhimModel context = new RapPhimModel();
+                #region Thêm thông tin khách hàng - Bằng
+                ThongTinKH formTTKH = new ThongTinKH();
+                if (formTTKH.ShowDialog() == DialogResult.OK) this.Show();
+                #endregion
+                List<GheNgoi> gh = context.GheNgois.ToList();
                 {
-                    RapPhimModel context = new RapPhimModel();
-                    List<GheNgoi> gh = context.GheNgois.ToList();
+                    foreach (Button b in groupBox1.Controls)
                     {
-                        foreach (Button b in groupBox1.Controls)
+                        GheNgoi g = context.GheNgois.FirstOrDefault(p => p.MaGhe.Trim() == b.Name.Trim());
+                        if (b.BackColor == Color.Blue)
                         {
-                            GheNgoi g = context.GheNgois.FirstOrDefault(p => p.MaGhe.Trim() == b.Name.Trim());
-                            if (b.BackColor == Color.Blue)
-                            {
-                                b.BackColor = Color.Gray;
-                                g.TrangThai = 1;
-                            }                   
-                        }
-                        context.SaveChanges();
+                            b.BackColor = Color.Gray;
+                            g.TrangThai = 1;
+                        }                   
                     }
+                    context.SaveChanges();
                 }
-                else
-                {
-                    MessageBox.Show("Bạn chưa chọn ghế !!!", "Thông báo",MessageBoxButtons.OK);
-                }
-            
             }
-            private void btnHuy_Click(object sender, EventArgs e)
+            else
+            {
+                MessageBox.Show("Bạn chưa chọn ghế !!!", "Thông báo",MessageBoxButtons.OK);
+            }
+            
+        }
+        private void btnHuy_Click(object sender, EventArgs e)
             {        
                 foreach (Button btn1 in groupBox1.Controls)
                 {
@@ -194,5 +198,6 @@ namespace DatGheXemPhim
         }
         #endregion
 
+        
     }
 }
