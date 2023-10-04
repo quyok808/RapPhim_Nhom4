@@ -23,15 +23,20 @@ namespace DatGheXemPhim
         #region tìm kiếm theo sđt, theo tên - Xuân Huy
         public void Grid()
         {
+            dataGridView1.Rows.Clear();
             RapPhimModel context = new RapPhimModel();
-            //var listkh = context.KhachHangs.ToList();
             var list = context.GheNgois.ToList();
             foreach (GheNgoi g in list)
             {
-                int newRow = dataGridView1.Rows.Add();
-                dataGridView1.Rows[newRow].Cells[0].Value = g.KhachHang.TenKH;
-                dataGridView1.Rows[newRow].Cells[1].Value = g.KhachHang.SDT;
-                dataGridView1.Rows[newRow].Cells[2].Value = g.MaGhe;
+                KhachHang kh = context.KhachHangs.FirstOrDefault(p => p.SDT == g.SDT);
+                if (kh != null)
+                {
+                    int newRow = dataGridView1.Rows.Add();
+                    dataGridView1.Rows[newRow].Cells[0].Value = kh.TenKH;
+                    dataGridView1.Rows[newRow].Cells[1].Value = kh.SDT;
+                    dataGridView1.Rows[newRow].Cells[2].Value = g.MaGhe;
+                }
+
             }
         }
         private void TimKiem_Load(object sender, EventArgs e)
@@ -41,10 +46,7 @@ namespace DatGheXemPhim
 
         private void Back_Click(object sender, EventArgs e)
         {
-            this.Hide();
-
-            DatGhe dg = new DatGhe();
-            dg.Show();
+            this.Close();
         }
 
         private void Find_Click(object sender, EventArgs e)
@@ -56,7 +58,7 @@ namespace DatGheXemPhim
             {
                 foreach (DataGridViewCell cell in row.Cells)
                 {
-                    if (cell.Value != null && cell.Value.ToString().Contains(keywordnum) && cell.Value.ToString().Contains(keywordname) )
+                    if (cell.Value != null && row.Cells[1].Value.ToString().Contains(keywordnum) && row.Cells[0].Value.ToString().Contains(keywordname) )
                     {
                         row.Visible = true;
                         break;
@@ -69,5 +71,23 @@ namespace DatGheXemPhim
             }
         }
         #endregion
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtKeyname.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtKeynum.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            DialogResult = DialogResult.OK;
+        }
+
+        private void txtKeynum_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtKeynum.Text) && string.IsNullOrEmpty(txtKeyname.Text))
+            {
+                Grid();
+            } else
+            {
+                Find_Click(sender, e);
+            }
+        }
     }
 }

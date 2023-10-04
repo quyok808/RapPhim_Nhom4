@@ -137,6 +137,7 @@
             this.txtInfor_Name.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInfor_Name.Location = new System.Drawing.Point(79, 46);
             this.txtInfor_Name.Name = "txtInfor_Name";
+            this.txtInfor_Name.ReadOnly = true;
             this.txtInfor_Name.Size = new System.Drawing.Size(240, 30);
             this.txtInfor_Name.TabIndex = 8;
             // 
@@ -145,8 +146,10 @@
             this.txtInfor_SDT.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInfor_SDT.Location = new System.Drawing.Point(79, 111);
             this.txtInfor_SDT.Name = "txtInfor_SDT";
+            this.txtInfor_SDT.ReadOnly = true;
             this.txtInfor_SDT.Size = new System.Drawing.Size(240, 30);
             this.txtInfor_SDT.TabIndex = 8;
+            this.txtInfor_SDT.TextChanged += new System.EventHandler(this.txtInfor_SDT_TextChanged);
             // 
             // label3
             // 
@@ -194,6 +197,7 @@
             this.btnFind.TabIndex = 11;
             this.btnFind.Text = "Tìm kiếm";
             this.btnFind.UseVisualStyleBackColor = false;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // pictureBox1
             // 
@@ -248,12 +252,12 @@
         private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnHuyVe;
-        private System.Windows.Forms.TextBox txtInfor_Name;
-        private System.Windows.Forms.TextBox txtInfor_SDT;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnFind;
+        private System.Windows.Forms.TextBox txtInfor_Name;
+        private System.Windows.Forms.TextBox txtInfor_SDT;
     }
 }
 

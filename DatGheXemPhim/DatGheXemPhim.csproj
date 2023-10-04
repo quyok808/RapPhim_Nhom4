@@ -72,6 +72,12 @@
     <Compile Include="ThongTinKH.Designer.cs">
       <DependentUpon>ThongTinKH.cs</DependentUpon>
     </Compile>
+    <Compile Include="TimKiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TimKiem.Designer.cs">
+      <DependentUpon>TimKiem.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DatGhe.resx">
       <DependentUpon>DatGhe.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +93,9 @@
     </Compile>
     <EmbeddedResource Include="ThongTinKH.resx">
       <DependentUpon>ThongTinKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimKiem.resx">
+      <DependentUpon>TimKiem.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
