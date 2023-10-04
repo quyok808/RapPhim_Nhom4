@@ -36,8 +36,8 @@
             this.lbThanhTien = new System.Windows.Forms.Label();
             this.btnHuy = new System.Windows.Forms.Button();
             this.btnHuyVe = new System.Windows.Forms.Button();
-            this.txtInfor_Name = new System.Windows.Forms.TextBox();
-            this.txtInfor_SDT = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtPhoneNum = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -132,21 +132,21 @@
             this.btnHuyVe.UseVisualStyleBackColor = false;
             this.btnHuyVe.Click += new System.EventHandler(this.btnHuyVe_Click);
             // 
-            // txtInfor_Name
+            // txtName
             // 
-            this.txtInfor_Name.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInfor_Name.Location = new System.Drawing.Point(79, 46);
-            this.txtInfor_Name.Name = "txtInfor_Name";
-            this.txtInfor_Name.Size = new System.Drawing.Size(240, 30);
-            this.txtInfor_Name.TabIndex = 8;
+            this.txtName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(79, 46);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(240, 30);
+            this.txtName.TabIndex = 8;
             // 
-            // txtInfor_SDT
+            // txtPhoneNum
             // 
-            this.txtInfor_SDT.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInfor_SDT.Location = new System.Drawing.Point(79, 111);
-            this.txtInfor_SDT.Name = "txtInfor_SDT";
-            this.txtInfor_SDT.Size = new System.Drawing.Size(240, 30);
-            this.txtInfor_SDT.TabIndex = 8;
+            this.txtPhoneNum.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhoneNum.Location = new System.Drawing.Point(79, 111);
+            this.txtPhoneNum.Name = "txtPhoneNum";
+            this.txtPhoneNum.Size = new System.Drawing.Size(240, 30);
+            this.txtPhoneNum.TabIndex = 8;
             // 
             // label3
             // 
@@ -171,9 +171,9 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.White;
-            this.groupBox2.Controls.Add(this.txtInfor_Name);
+            this.groupBox2.Controls.Add(this.txtName);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.txtInfor_SDT);
+            this.groupBox2.Controls.Add(this.txtPhoneNum);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(1093, 98);
@@ -194,6 +194,7 @@
             this.btnFind.TabIndex = 11;
             this.btnFind.Text = "Tìm kiếm";
             this.btnFind.UseVisualStyleBackColor = false;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // pictureBox1
             // 
@@ -248,8 +249,8 @@
         private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnHuyVe;
-        private System.Windows.Forms.TextBox txtInfor_Name;
-        private System.Windows.Forms.TextBox txtInfor_SDT;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtPhoneNum;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox2;

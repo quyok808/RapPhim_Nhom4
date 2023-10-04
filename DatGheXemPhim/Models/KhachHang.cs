@@ -20,7 +20,7 @@ namespace DatGheXemPhim.Models
         public string TenKH { get; set; }
 
         [Key]
-        [StringLength(10)]
+        [StringLength(11)]
         public string SDT { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -44,6 +44,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(240, 30);
             this.txtName.TabIndex = 10;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // label4
             // 
@@ -77,7 +78,7 @@
             // 
             this.btnXacNhan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnXacNhan.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnXacNhan.Font = new System.Drawing.Font("#9Slide03 Arima Madurai ExtraBo", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXacNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXacNhan.Location = new System.Drawing.Point(30, 158);
             this.btnXacNhan.Name = "btnXacNhan";
             this.btnXacNhan.Size = new System.Drawing.Size(108, 36);
@@ -89,7 +90,7 @@
             // 
             this.btnHuy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnHuy.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnHuy.Font = new System.Drawing.Font("#9Slide03 Arima Madurai ExtraBo", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuy.Location = new System.Drawing.Point(229, 158);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(108, 36);
@@ -115,6 +116,7 @@
             this.Name = "ThongTinKH";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thông tin khách hàng";
+            this.Load += new System.EventHandler(this.ThongTinKH_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
