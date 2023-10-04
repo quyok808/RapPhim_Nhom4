@@ -211,5 +211,13 @@ namespace DatGheXemPhim
             txtInfor_SDT.Text = null;
         }
         #endregion
+
+        #region tìm kiếm theo sđt, theo tên - Xuân Huy
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            TimKiem tk = new TimKiem();
+            tk.ShowDialog();
+        }
+        #endregion
     }
 }
