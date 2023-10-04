@@ -119,32 +119,46 @@ namespace DatGheXemPhim
             }
         private void BtnChon_Click(object sender, EventArgs e)
         {
+            KhachHang kh = new KhachHang();
             if (CheckGhe() == true)
             {
                 RapPhimModel context = new RapPhimModel();
                 #region Thêm thông tin khách hàng - Bằng
                 ThongTinKH formTTKH = new ThongTinKH();
-                if (formTTKH.ShowDialog() == DialogResult.OK) this.Show();
-                #endregion
-                List<GheNgoi> gh = context.GheNgois.ToList();
+                
+                if (formTTKH.ShowDialog() == DialogResult.OK)
                 {
-                    foreach (Button b in groupBox1.Controls)
+                    #region Hồng Vi - chọn ghế
+                    List<GheNgoi> gh = context.GheNgois.ToList();
                     {
-                        GheNgoi g = context.GheNgois.FirstOrDefault(p => p.MaGhe.Trim() == b.Name.Trim());
-                        if (b.BackColor == Color.Blue)
+                        foreach (Button b in groupBox1.Controls)
                         {
-                            b.BackColor = Color.Gray;
-                            g.TrangThai = 1;
-                        }                   
+                            GheNgoi g = context.GheNgois.FirstOrDefault(p => p.MaGhe.Trim() == b.Name.Trim());
+                            if (b.BackColor == Color.Blue)
+                            {
+                                b.BackColor = Color.Gray;
+                                g.TrangThai = 1;
+                                g.SDT = formTTKH.txtSDT.Text; // bằng 
+                            }                   
+                        }
+                        
                     }
+                    #endregion
+                    kh.TenKH = formTTKH.txtName.Text; //
+                    kh.SDT = formTTKH.txtSDT.Text;    // Bằng
+                    context.KhachHangs.Add(kh);       //
                     context.SaveChanges();
                 }
+                else
+                {
+                    DatGhe_Load(sender,e);
+                }
+                #endregion
             }
             else
             {
                 MessageBox.Show("Bạn chưa chọn ghế !!!", "Thông báo",MessageBoxButtons.OK);
             }
-            
         }
         private void btnHuy_Click(object sender, EventArgs e)
             {        
@@ -197,7 +211,5 @@ namespace DatGheXemPhim
             txtInfor_SDT.Text = null;
         }
         #endregion
-
-        
     }
 }
