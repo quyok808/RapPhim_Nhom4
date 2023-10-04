@@ -81,7 +81,7 @@
             this.btnChon.TabIndex = 2;
             this.btnChon.Text = "Chọn";
             this.btnChon.UseVisualStyleBackColor = false;
-            this.btnChon.Click += new System.EventHandler(this.btnChon_Click);
+            this.btnChon.Click += new System.EventHandler(this.BtnChon_Click);
             // 
             // label2
             // 

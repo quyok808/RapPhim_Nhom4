@@ -85,6 +85,7 @@
             this.btnXacNhan.TabIndex = 14;
             this.btnXacNhan.Text = "Xác nhận";
             this.btnXacNhan.UseVisualStyleBackColor = false;
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
             // btnHuy
             // 
@@ -97,6 +98,7 @@
             this.btnHuy.TabIndex = 15;
             this.btnHuy.Text = "Huỷ";
             this.btnHuy.UseVisualStyleBackColor = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // ThongTinKH
             // 

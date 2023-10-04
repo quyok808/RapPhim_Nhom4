@@ -75,12 +75,12 @@ namespace DatGheXemPhim
 
             foreach (Button btn in groupBox1.Controls)
             {
-                GheNgoi g = db.GheNgois.FirstOrDefault(p => p.MaGhe == btn.Name);
-                //if (g.TrangThai == 1)
-                //{
-                //    btn.BackColor = Color.Gray;
-                //}
-                txtName.Text = null;
+                GheNgoi g = db.GheNgois.FirstOrDefault(p => p.MaGhe.Trim() == btn.Name.Trim());
+                if (g.TrangThai == 1 && g != null)
+                {
+                    btn.BackColor = Color.Gray;
+                }
+                txtInfor_Name.Text = null;
                 lbThanhTien.Text = "0";
                 tong = 0;
             }
@@ -113,35 +113,54 @@ namespace DatGheXemPhim
                     dachon++;
                 }
             }
-            if (dachon > 0)
-            {
-                return true;
-            }
-            return false;
-        }
-        private void btnChon_Click(object sender, EventArgs e)
+        private void BtnChon_Click(object sender, EventArgs e)
         {
+            KhachHang kh = new KhachHang();
             if (CheckGhe() == true)
             {
                 RapPhimModel context = new RapPhimModel();
-                List<GheNgoi> gh = context.GheNgois.ToList();
+                #region Thêm thông tin khách hàng - Bằng
+                ThongTinKH formTTKH = new ThongTinKH();
+                
+                if (formTTKH.ShowDialog() == DialogResult.OK)
                 {
-                    foreach (Button b in groupBox1.Controls)
+                    #region Hồng Vi - chọn ghế
+                    List<GheNgoi> gh = context.GheNgois.ToList();
                     {
                         GheNgoi g = context.GheNgois.FirstOrDefault(p => p.MaGhe.Trim() == b.Name.Trim());
                         if (b.BackColor == Color.Blue)
                         {
-                            b.BackColor = Color.Gray;
-                            //g.TrangThai = 1;
+                            GheNgoi g = context.GheNgois.FirstOrDefault(p => p.MaGhe.Trim() == b.Name.Trim());
+                            if (b.BackColor == Color.Blue)
+                            {
+                                b.BackColor = Color.Gray;
+                                g.TrangThai = 1;
+                                g.SDT = formTTKH.txtSDT.Text; // bằng 
+                            }                   
                         }
+                        
                     }
+                    #endregion
+                    kh.TenKH = formTTKH.txtName.Text; //
+                    kh.SDT = formTTKH.txtSDT.Text;    // Bằng
+                    context.KhachHangs.Add(kh);       //
                     context.SaveChanges();
                 }
+                else
+                {
+                    DatGhe_Load(sender,e);
+                }
+                #endregion
             }
             else
             {
-                MessageBox.Show("Bạn chưa chọn ghế !!!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Bạn chưa chọn ghế !!!", "Thông báo",MessageBoxButtons.OK);
             }
+        }
+        private void btnHuy_Click(object sender, EventArgs e)
+            {        
+                foreach (Button btn1 in groupBox1.Controls)
+                {
 
         }
         private void btnHuy_Click(object sender, EventArgs e)
@@ -203,7 +222,6 @@ namespace DatGheXemPhim
             tk.ShowDialog();
         }
         #endregion
-
 
     }
 }
