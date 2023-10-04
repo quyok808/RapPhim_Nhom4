@@ -8,7 +8,7 @@ namespace DatGheXemPhim.Models
     public partial class RapPhimModel : DbContext
     {
         public RapPhimModel()
-            : base("name=RapPhimModel")
+            : base("name=RapPhimModel3")
         {
         }
 

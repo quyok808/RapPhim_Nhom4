@@ -19,7 +19,7 @@ namespace DatGheXemPhim.Models
 
         public int TrangThai { get; set; }
 
-        [StringLength(10)]
+        [StringLength(11)]
         public string SDT { get; set; }
 
         public virtual KhachHang KhachHang { get; set; }

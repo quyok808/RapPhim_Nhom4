@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
@@ -102,20 +104,14 @@ namespace DatGheXemPhim
         #endregion
         #region Chọn ghế, Huỷ ghế đang chọn - Hồng Vi
         private bool CheckGhe()
+        {
+            int dachon = 0;
+            foreach (Button b in groupBox1.Controls)
             {
-                int dachon = 0;
-                foreach (Button b in groupBox1.Controls)
+                if (b.BackColor == Color.Blue)
                 {
-                    if (b.BackColor == Color.Blue)
-                    {
-                        dachon++;
-                    }
+                    dachon++;
                 }
-                if (dachon > 0)
-                {
-                    return true;
-                }
-                return false;
             }
         private void BtnChon_Click(object sender, EventArgs e)
         {
@@ -131,7 +127,8 @@ namespace DatGheXemPhim
                     #region Hồng Vi - chọn ghế
                     List<GheNgoi> gh = context.GheNgois.ToList();
                     {
-                        foreach (Button b in groupBox1.Controls)
+                        GheNgoi g = context.GheNgois.FirstOrDefault(p => p.MaGhe.Trim() == b.Name.Trim());
+                        if (b.BackColor == Color.Blue)
                         {
                             GheNgoi g = context.GheNgois.FirstOrDefault(p => p.MaGhe.Trim() == b.Name.Trim());
                             if (b.BackColor == Color.Blue)
@@ -165,13 +162,19 @@ namespace DatGheXemPhim
                 foreach (Button btn1 in groupBox1.Controls)
                 {
 
-                    if (btn1.BackColor == Color.Blue)
-                    {
-                        btn1.BackColor = Color.White;
+        }
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            foreach (Button btn1 in groupBox1.Controls)
+            {
 
-                    }
+                if (btn1.BackColor == Color.Blue)
+                {
+                    btn1.BackColor = Color.White;
+
                 }
             }
+        }
         #endregion
         #region Tính tiền, Huỷ vé - Công Quý
         private int ThanhTien(Button btn)
@@ -195,7 +198,7 @@ namespace DatGheXemPhim
         private void btnHuyVe_Click(object sender, EventArgs e)
         {
             RapPhimModel contextDB = new RapPhimModel();
-            List<GheNgoi> g = contextDB.GheNgois.Where(p => p.SDT == txtInfor_SDT.Text).ToList();
+            List<GheNgoi> g = contextDB.GheNgois.Where(p => p.SDT == txtPhoneNum.Text).ToList();
             foreach (Button btn in groupBox1.Controls)
             {
                 for (int i = 0; i < g.Count; i++)
@@ -208,8 +211,17 @@ namespace DatGheXemPhim
                 }
             }
             contextDB.SaveChanges();
-            txtInfor_SDT.Text = null;
+            txtPhoneNum.Text = null;
         }
         #endregion
+
+        #region tìm kiếm theo sđt, theo tên - Xuân Huy
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            TimKiem tk = new TimKiem();
+            tk.ShowDialog();
+        }
+        #endregion
+
     }
 }
